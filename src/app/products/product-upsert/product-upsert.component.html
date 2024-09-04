@@ -1,0 +1,54 @@
+<div class="container mt-5 bg-dark text-light p-4 rounded">
+    <h2 class="h2 pb-3 border-bottom border-info">{{ isEditMode ? 'Edit' : 'Create'}} Product</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" name="name" id="name" class="form-control" formControlName="name">
+                    <div *ngIf="contactForm.get('name')?.invalid && (contactForm.get('name')?.touched || contactForm.get('name')?.dirty)" class="text-danger mt-2">
+                        Name is Required
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="brand" class="form-label">Brand:</label>
+                    <input type="text" name="brand" id="brand" class="form-control" formControlName="brand">
+                    <div *ngIf="contactForm.get('brand')?.invalid && (contactForm.get('brand')?.touched || contactForm.get('brand')?.dirty)" class="text-danger mt-2">
+                        Brand is Required
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price:</label>
+                    <input type="text" name="price" id="price" class="form-control" formControlName="price">
+                    <div *ngIf="contactForm.get('price')?.invalid && (contactForm.get('price')?.touched || contactForm.get('price')?.dirty)" class="text-danger mt-2">
+                        Price is Required
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="img" class="form-label">Image URL:</label>
+                    <input type="text" name="img" id="img" class="form-control" formControlName="imageUrl">
+                    <div *ngIf="contactForm.get('imageUrl')?.invalid && (contactForm.get('imageUrl')?.touched || contactForm.get('imageUrl')?.dirty)" class="text-danger mt-2">
+                        Image URL is Required
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="manufacturedYear" class="form-label">Manufactured Year:</label>
+                    <input type="text" name="manufacturedYear" id="manufacturedYear" class="form-control" formControlName="manufacturedYear">
+                    <div *ngIf="contactForm.get('manufacturedYear')?.invalid && (contactForm.get('manufacturedYear')?.touched || contactForm.get('manufacturedYear')?.dirty)" class="text-danger mt-2">
+                        Manufactured Year is Required
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-info text-light" *ngIf="!isEditMode" type="submit" [disabled]="!contactForm.valid">Add Product</button>
+                    <button class="btn btn-success text-dark" *ngIf="isEditMode" type="submit">Update Product</button>
+                    <button class="btn btn-warning" (click)="onBack()">Back</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

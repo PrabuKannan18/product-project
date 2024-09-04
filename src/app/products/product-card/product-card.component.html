@@ -1,0 +1,15 @@
+
+<div class="container mt-4">
+  <div class="card shadow-lg border-light">
+    <div class="card-header bg-secondary text-white">
+      {{product.name}}
+    </div>
+    <img [src]="product.imageUrl" alt="Product image" class="card-img-top p-4" style="height:220px; width:auto; ">
+    <div class="card-body">
+      <button class="btn btn-primary w-100" (click)="onDetailsPage()">Details</button>
+    </div>
+    <div class="card-footer bg-light text-center">
+      <h5 class="mb-0">${{product.price}}</h5>
+    </div>
+  </div>
+</div>
